@@ -1,5 +1,5 @@
-### Nom Noms
-## Encouraging mindful nutrition throughout the day
+## Nom Noms
+### Encouraging mindful nutrition throughout the day
 
 Nom-noms is a web app designed to encourage mindfulness whilst eating. It does this by utilising charts which represent the food that you have eaten throughout the day, and how good or bad you believe that food is.
 
