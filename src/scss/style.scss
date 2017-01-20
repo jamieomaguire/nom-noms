@@ -1,5 +1,11 @@
-$paleblue: lightblue;
+/*
 
-body {
-    background-color: $paleblue;
-}
+Primary style sheet
+
+No CSS is directly written in this file.
+
+*/
+
+@import 'vendor/vendor-dir';
+@import 'modules/modules-dir';
+@import 'partials/partials-dir';

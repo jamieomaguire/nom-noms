@@ -21562,7 +21562,7 @@
 
 
 	// module
-	exports.push([module.id, "body {\n  background-color: lightblue; }\n", ""]);
+	exports.push([module.id, "/*\r\n\r\nPrimary style sheet\r\n\r\nNo CSS is directly written in this file.\r\n\r\n*/\n/*\r\n\r\nThis is the modules directory\r\nModules are things like mixin declarations, functions and variables\r\nand do not output any css directly\r\n\r\n*/\n/*\r\n\r\nColour variables are stored here\r\n\r\n*/\n/*\r\n\r\nPartials directory\r\n\r\n*/\ndiv {\n  background-color: #ff6666; }\n\nbody {\n  background-color: lightblue; }\n", ""]);
 
 	// exports
 

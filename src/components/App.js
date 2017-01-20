@@ -1,14 +1,15 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 
-require('./scss/style.scss');
+require('../scss/style.scss');
 
 class App extends React.Component {
     render() {
         return (
-            <div>
+            <div className="app-container">
                 <h1>{this.props.title}</h1>
                 <h2>{this.props.subTitle}</h2>
+                <button>Click me sucka</button>
             </div>
         );
     }
