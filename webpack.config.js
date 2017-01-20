@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 
 module.exports = {
-    entry: './src/components/app.js',
+    entry: './src/components/App.js',
     output: {
         path: 'build',
         filename: 'bundle.js'
@@ -23,7 +23,7 @@ module.exports = {
             }, // babel loader
             {
                 test: /\.scss$/,
-                loader: 'style-loader!css-loader!sass-loader'
+                loader: 'style-loader!css-loader!sass-loader!autoprefixer-loader'
             }, // scss loader
             {
                 test: /\.(png|jpg)$/,

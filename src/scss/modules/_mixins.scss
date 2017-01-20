@@ -6,15 +6,12 @@ Reserved for mixins
 
 // Full Screen Background Image
 @mixin bgImage($image, $height: 100vh) {
-<<<<<<< HEAD
     background: linear-gradient(to bottom, $transparent, $transparentBlack), url($image);
     background-repeat: no-repeat;
     background-postion: center center;
-=======
     background: url($image);
     background-repeat: no-repeat;
     background-position: center center;
->>>>>>> master
     background-size: cover;
     height: $height;
 }
