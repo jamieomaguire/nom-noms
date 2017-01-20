@@ -1,3 +1,4 @@
 body {
     background-color: $paleblue;
+    @include bgImage("../../src/images/stars.jpg"); // path is from bundle.js to image directory within src
 }
