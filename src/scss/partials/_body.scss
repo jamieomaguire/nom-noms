@@ -1,4 +1,4 @@
 body {
-    background-color: $paleblue;
     // @include bgImage("../../src/images/stars.jpg"); // path is from bundle.js to image directory within src
+        @include bgImage('http://cdn.paper4pc.com/images/cliffs-wallpaper-6.jpg');
 }
