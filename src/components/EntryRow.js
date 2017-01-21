@@ -1,7 +1,7 @@
-import FaBirthdayCake from 'react-icons/lib/fa/birthday-cake'
-import MdGoat from 'react-icons/lib/md/goat'
+import TiDeleteOutline from 'react-icons/lib/ti/delete-outline'
+import { PropTypes } from 'react'
 
-export const EntryRow = ({time, meal, value, birthday, goatEater}) => (
+export const EntryRow = ({time, meal, value}) => (
     <tr>
         <td>
             {time}
@@ -13,10 +13,15 @@ export const EntryRow = ({time, meal, value, birthday, goatEater}) => (
             {value}
         </td>
         <td>
-            {(birthday) ? <FaBirthdayCake/> : null}
-        </td>
-        <td>
-            {(goatEater) ? <MdGoat/> : null}
+            <button className="deleteBtn">
+                <TiDeleteOutline size={30} color={'#999'}/>
+            </button>
         </td>
     </tr>
 )
+
+EntryRow.proptypes = {
+    time: PropTypes.string.isRequired,
+    meal: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired
+}

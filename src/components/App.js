@@ -1,14 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import '../scss/style.scss';
-import { Header } from './Header';
-import { EntriesList } from './EntriesList';
+import { Component } from 'react'
+import { Header } from './Header'
+import { EntriesList } from './EntriesList'
+// import { Form } from './Form'
+import { AddEntryForm } from './AddEntryForm'
+import { DoughnutChart } from './DoughnutChart'
+import { Menu } from './Menu'
 
-// Define react in the window
-window.React = React;
-
-class App extends React.Component {
-
+export class App extends Component {
     constructor(props){
         super(props);
 
@@ -20,66 +18,75 @@ class App extends React.Component {
                     time: '7:00AM',
                     meal: 'Scrambled eggs and toast',
                     value: 'Good',
-                    birthday: true,
-                    goatEater: false
                 },
                 {
                     time: '9:45AM',
                     meal: 'Apple',
                     value: 'Good',
-                    birthday: false,
-                    goatEater: true
                 },
                 {
                     time: '12:30PM',
                     meal: 'Ready salted crisps',
                     value: 'Bad',
-                    birthday: true,
-                    goatEater: false
                 },
                 {
                     time: '7:00AM',
                     meal: 'Scrambled eggs and toast',
                     value: 'Good',
-                    birthday: true,
-                    goatEater: false
                 },
                 {
                     time: '9:45AM',
                     meal: 'Apple',
                     value: 'Good',
-                    birthday: false,
-                    goatEater: true
                 },
                 {
                     time: '12:30PM',
                     meal: 'Ready salted crisps',
                     value: 'Bad',
-                    birthday: true,
-                    goatEater: false
                 }
-            ]
+            ],
+            selectVal: '',
+            chartVals: [55, 27, 10],
+            // To access chart data values: chartData.datasets[0].data
+            chartData: {
+                    labels: ['Healthy', 'Average', 'Unhealthy'],
+                    datasets: [
+                        {
+                            data: [1, 2, 3],
+                            backgroundColor: [
+                                '#68D286',
+                                '#FBAD2F',
+                                '#EB585C'
+                            ],
+                            hoverBackgroundColor: [
+                           '#68D286',
+                           '#FBAD2F',
+                           '#EB585C'
+                           ]
+                        }
+                    ],
+                    options: {
+                        cutoutPercentage: 55
+                    }
+            } // chartData
+
         }; // state
 
     } // constructor
 
-    handleClick() {
-        console.log(this); // React Component Instance
-    }
-
-
     render() {
         return (
             <div className="app-container">
-                <Header title={this.state.title} subTitle={this.state.subTitle} />
-                <EntriesList entries={this.state.entries}/>
+            <Menu />
+            {(this.props.location.pathname === "/") ? <Header title={this.state.title} subTitle={this.state.subTitle} /> :
+            (this.props.location.pathname === "/add-entry") ? <AddEntryForm /> :
+            (this.props.location.pathname === "/view-chart") ? <DoughnutChart vals={this.state.chartData}/> :
+            (this.props.location.pathname === "/view-list") ?
+            <EntriesList entries={this.state.entries}/> : null
+            }
+
+            {/* <Form selectVal={this.state.selectVal}/> */}
             </div>
-        ); // return
+        ) // return
     } // render
 }
-
-
-ReactDOM.render(
-    <App />,
-    document.getElementById('react-container')
-)

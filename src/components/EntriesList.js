@@ -1,6 +1,5 @@
-import FaBirthdayCake from 'react-icons/lib/fa/birthday-cake'
-import MdGoat from 'react-icons/lib/md/goat'
 import { EntryRow } from './EntryRow'
+import { PropTypes } from 'react'
 
 export const EntriesList = ({entries}) => (
     <table>
@@ -9,8 +8,6 @@ export const EntriesList = ({entries}) => (
                 <th>Time</th>
                 <th>Meal</th>
                 <th>Value</th>
-                <th>Birthday</th>
-                <th>Goat Eater</th>
             </tr>
         </thead>
         <tbody>
@@ -21,3 +18,20 @@ export const EntriesList = ({entries}) => (
         </tbody>
     </table>
 )
+
+// Custom Error handling to ensure prop type is an array
+EntriesList.propTypes = {
+    entries: function(props){
+        if(!Array.isArray(props.entries)) {
+            return new Error(
+                "EntriesList should be an array"
+            )
+        // } else if (!props.entries.length) {
+        //     return new Error(
+        //         "EntriesList must have at least one record"
+        //     )
+        } else {
+            return null;
+        }
+    }
+}

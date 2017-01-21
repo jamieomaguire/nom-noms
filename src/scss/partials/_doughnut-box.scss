@@ -1,0 +1,9 @@
+.doughnut-box {
+    @include flexbox(row, center, center);
+    padding-top: 50px;
+}
+
+canvas {
+    flex: 1 1 100%;
+    max-width: 800px;
+}

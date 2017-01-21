@@ -1,0 +1,13 @@
+.deleteBtn {
+    border: none;
+    background: none;
+
+    g {
+        transition: all 300ms ease-out;
+    }
+    &:hover {
+        g {
+            color: green;
+        }
+    }
+}
