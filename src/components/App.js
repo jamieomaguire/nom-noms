@@ -4,6 +4,7 @@ import '../scss/style.scss';
 import { Header } from './Header';
 import { EntriesList } from './EntriesList';
 
+// Define react in the window
 window.React = React;
 
 class App extends React.Component {
