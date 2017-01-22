@@ -1,7 +1,8 @@
 import TiDeleteOutline from 'react-icons/lib/ti/delete-outline'
+import SnowFlake from 'react-icons/lib/ti/weather-snow'
 import { PropTypes } from 'react'
 
-export const EntryRow = ({time, meal, value}) => (
+export const EntryRow = ({time, meal, good, okay, bad}) => (
     <tr>
         <td>
             {time}
@@ -10,7 +11,13 @@ export const EntryRow = ({time, meal, value}) => (
             {meal}
         </td>
         <td>
-            {value}
+            {(good) ? <SnowFlake/> : null}
+        </td>
+        <td>
+            {(okay) ? <SnowFlake/> : null}
+        </td>
+        <td>
+            {(bad) ? <SnowFlake/> : null}
         </td>
         <td>
             <button className="deleteBtn">
@@ -23,5 +30,7 @@ export const EntryRow = ({time, meal, value}) => (
 EntryRow.proptypes = {
     time: PropTypes.string.isRequired,
     meal: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired
+    good: PropTypes.bool,
+    okay: PropTypes.bool,
+    bad: PropTypes.bool
 }

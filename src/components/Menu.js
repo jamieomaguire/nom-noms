@@ -1,8 +1,8 @@
-import { Link } from 'react-router'
-import TiHomeOutline from 'react-icons/lib/ti/home-outline'
-import MdAddCircleOutline from 'react-icons/lib/md/add-circle-outline'
-import TiChartPieOutline from 'react-icons/lib/ti/chart-pie-outline'
-import MdFormatListBulleted from 'react-icons/lib/md/format-list-bulleted'
+import { Link } from 'react-router';
+import TiHomeOutline from 'react-icons/lib/ti/home-outline';
+import MdAddCircleOutline from 'react-icons/lib/md/add-circle-outline';
+import TiChartPieOutline from 'react-icons/lib/ti/chart-pie-outline';
+import MdFormatListBulleted from 'react-icons/lib/md/format-list-bulleted';
 
 export const Menu = () =>
     <nav className="menu">

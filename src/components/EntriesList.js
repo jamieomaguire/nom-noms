@@ -7,7 +7,9 @@ export const EntriesList = ({entries}) => (
             <tr>
                 <th>Time</th>
                 <th>Meal</th>
-                <th>Value</th>
+                <th>Good</th>
+                <th>Okay</th>
+                <th>Bad</th>
             </tr>
         </thead>
         <tbody>

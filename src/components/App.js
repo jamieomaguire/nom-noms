@@ -17,36 +17,11 @@ export class App extends Component {
                 {
                     time: '7:00AM',
                     meal: 'Scrambled eggs and toast',
-                    value: 'Good',
-                },
-                {
-                    time: '9:45AM',
-                    meal: 'Apple',
-                    value: 'Good',
-                },
-                {
-                    time: '12:30PM',
-                    meal: 'Ready salted crisps',
-                    value: 'Bad',
-                },
-                {
-                    time: '7:00AM',
-                    meal: 'Scrambled eggs and toast',
-                    value: 'Good',
-                },
-                {
-                    time: '9:45AM',
-                    meal: 'Apple',
-                    value: 'Good',
-                },
-                {
-                    time: '12:30PM',
-                    meal: 'Ready salted crisps',
-                    value: 'Bad',
+                    good: true,
+                    okay: false,
+                    bad: false
                 }
             ],
-            selectVal: '',
-            chartVals: [55, 27, 10],
             // To access chart data values: chartData.datasets[0].data
             chartData: {
                     labels: ['Healthy', 'Average', 'Unhealthy'],
@@ -72,14 +47,27 @@ export class App extends Component {
 
         }; // state
 
+        this.addEntry = this.addEntry.bind(this)
+
     } // constructor
+
+    // add new day function
+    addEntry(newEntry) {
+        this.setState({
+            entries: [
+                ...this.state.entries,
+                newEntry
+            ]
+        })
+    }
+
 
     render() {
         return (
             <div className="app-container">
             <Menu />
             {(this.props.location.pathname === "/") ? <Header title={this.state.title} subTitle={this.state.subTitle} /> :
-            (this.props.location.pathname === "/add-entry") ? <AddEntryForm /> :
+            (this.props.location.pathname === "/add-entry") ? <AddEntryForm onNewEntry={this.addEntry} /> :
             (this.props.location.pathname === "/view-chart") ? <DoughnutChart vals={this.state.chartData}/> :
             (this.props.location.pathname === "/view-list") ?
             <EntriesList entries={this.state.entries}/> : null
