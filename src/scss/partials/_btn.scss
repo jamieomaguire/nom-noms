@@ -1,0 +1,13 @@
+.btn {
+    @include btn(15em, 3em, 2em, .5em);
+}
+
+.blue {
+    background-image: linear-gradient(80deg, $dark-blue 0%, $light-blue 100%);
+    @include gradient-animation(80deg, $dark-blue, $light-blue);
+}
+
+.orange {
+    background-image: linear-gradient(80deg, orange 0%, $pink 100%);
+    @include gradient-animation(80deg, orange, $pink);
+}

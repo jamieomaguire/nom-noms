@@ -1,11 +1,14 @@
 .header {
-    background-color: $pink;
     color: $white;
     text-align: center;
-    min-height: 300px;
+    min-height: 100%;
     @include flexbox(column, center, center);
 }
 
 .header h1, .header h2 {
     margin: 0;
+}
+
+.header h1 {
+    margin-top: -150px;
 }

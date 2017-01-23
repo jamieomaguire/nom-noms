@@ -1,0 +1,27 @@
+.form-container {
+    height: 100%;
+    @include flexbox(column, center, center);
+}
+
+.add-entry-form {
+    margin-top: -150px;
+    padding: 1em;
+    @include flexbox (column, center, center, wrap);
+
+    > * {
+        margin-bottom: 1em;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    input[type="text"] {
+        margin-left: 10px;
+    }
+
+    input[type="checkbox"] {
+        margin-right: 10px;
+    }
+
+
+}

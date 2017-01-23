@@ -1,0 +1,26 @@
+.text-input {
+    width: 20em;
+    height: 3em;
+    padding: 0;
+    font-size: .9em;
+    background-color: transparent;
+    border: 0;
+    border-bottom: 1px solid rgba(255, 255, 255,0.5);
+    outline: none;
+}
+
+.test {
+    position: relative;
+
+    label {
+        @include position(absolute, 40%, null, null, 12px);
+        transition: all 200ms ease-out;
+        color: rgba(255, 255, 255,0.5);
+
+    }
+    .active-label {
+        transform: translateX(-5px) translateY(-25px) scale(0.8);
+        color: $white;
+    }
+
+}

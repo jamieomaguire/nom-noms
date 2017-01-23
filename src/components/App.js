@@ -41,7 +41,23 @@ export class App extends Component {
                         }
                     ],
                     options: {
-                        cutoutPercentage: 55
+                        cutoutPercentage: 50,
+                        datasetStrokeWidth : 5,
+                        elements: {
+                            arc: {
+                                borderWidth: 2
+                            }
+                        },
+                        legend: {
+                            labels: {
+                                boxWidth: 20,
+                                padding: 25
+                            }
+                        },
+                        title: {
+                            display: true,
+                            text: 'Custom Chart Title'
+                        }
                     }
             } // chartData
 
@@ -53,6 +69,16 @@ export class App extends Component {
 
     // add new day function
     addEntry(newEntry) {
+        let chartDataGood = this.state.chartData.datasets[0].data[0]
+        console.log(newEntry.good)
+        if (newEntry.good) {
+            console.log('good entry')
+        } else if (newEntry.okay) {
+            console.log('okay entry')
+        } else if (newEntry.bad) {
+            console.log('bad entry')
+        }
+
         this.setState({
             entries: [
                 ...this.state.entries,
@@ -65,15 +91,19 @@ export class App extends Component {
     render() {
         return (
             <div className="app-container">
-            <Menu />
-            {(this.props.location.pathname === "/") ? <Header title={this.state.title} subTitle={this.state.subTitle} /> :
-            (this.props.location.pathname === "/add-entry") ? <AddEntryForm onNewEntry={this.addEntry} /> :
-            (this.props.location.pathname === "/view-chart") ? <DoughnutChart vals={this.state.chartData}/> :
-            (this.props.location.pathname === "/view-list") ?
-            <EntriesList entries={this.state.entries}/> : null
-            }
-
-            {/* <Form selectVal={this.state.selectVal}/> */}
+                <Menu />
+                {
+                    (this.props.location.pathname === "/") ?
+                    <Header title={this.state.title} subTitle={this.state.subTitle} /> :
+                    (this.props.location.pathname === "/add-entry") ? <AddEntryForm onNewEntry={this.addEntry} /> :
+                    (this.props.location.pathname === "/view-chart") ? <DoughnutChart vals={this.state.chartData}/> :
+                    (this.props.location.pathname === "/view-list") ?
+                    <EntriesList entries={this.state.entries}/> : null
+                }
+                {/* <Header title={this.state.title} subTitle={this.state.subTitle} />
+                <DoughnutChart vals={this.state.chartData}/>
+                <AddEntryForm onNewEntry={this.addEntry} />
+                <EntriesList entries={this.state.entries}/> */}
             </div>
         ) // return
     } // render

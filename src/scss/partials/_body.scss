@@ -1,5 +1,29 @@
 body {
     // Example image path: ../../src/images/stars.jpg - path is from bundle.js to image directory within src
-    background-image: linear-gradient(250deg, #AAA 0%, #FFFFFF 100%);
-    background-attachment: fixed;
+    min-height: 100vh;
+    z-index: 100;
+    position: relative;
+    overflow: hidden;
+
+    &:before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        display: block;
+        @include bgImage('http://1.bp.blogspot.com/-9VWTk3LsUrU/UAe8GnV6hWI/AAAAAAAAHCw/ATOzf-5b230/s1600/Hdhut.blogspot.com+(12).jpg');
+        filter: blur(5px) brightness(80%);
+        z-index: -100;
+        transform: scale(1.03); // get rid of faded blurry edges
+    }
+}
+
+#react-container {
+    height: 100vh;
+}
+
+.app-container {
+    height: 100%;
 }
